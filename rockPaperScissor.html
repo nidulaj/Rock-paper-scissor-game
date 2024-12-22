@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style/rockPaperScissor.css" />
+  </head>
+  <body>
+    <p class="topic"></p>
+    <div class="buttons-3">
+      <div class="rock-div">
+        <button
+          class="rock-button"
+          onclick="playerSelect='Rock';  playGame(playerSelect);"
+        >
+          <img class="rock-img" src="img/rock-emoji.png" alt="" />
+        </button>
+      </div>
+      <div class="paper-div">
+        <button
+          class="paper-button"
+          onclick="playerSelect='Paper';  playGame(playerSelect);"
+        >
+          <img class="paper-img" src="img/paper-emoji.png" alt="" />
+        </button>
+      </div>
+      <div class="scissors-div">
+        <button
+          class="scissors-button"
+          onclick="playerSelect='Scissors'; playGame(playerSelect);"
+        >
+          <img class="scissors-img" src="img/scissors-emoji.png" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <p class="js-result"></p>
+    <p class="js-status"></p>
+    <p class="js-score"></p>
+    <button class="reset-button" onclick="resetScore();">Reset</button>
+    <button class="autoPlay-button" onclick="autoPlay();">Auto Play</button>
+    <p class="js-autoPlay"></p>
+    <script>
+      printName();
+      function printName() {
+        let name = localStorage.getItem("userName");
+        document.querySelector(".topic").innerHTML = `Welcome ${name}`;
+      }
+
+      function playGame(playerSelect) {
+        computerMoveSelect();
+        finalResult = compare(playerSelect);
+        updatedScore();
+        updatedResult();
+        updatedStatus();
+      }
+
+      function resetScore() {
+        score.wins = 0;
+        score.loses = 0;
+        score.tied = 0;
+        localStorage.removeItem("score");
+        alert("Reset the score");
+        updatedScore();
+        resetGame();
+      }
+
+      /* function autoPlay() {}
+
+      function computerMoveSelect() {}
+      function compare(playerSelect) {}
+      function updatedScore() {}
+      function updatedResult() {}
+      function updatedStatus() {}*/
+    </script>
+    <script src="script/rockPaperScissorJS.js"></script>
+  </body>
+</html>

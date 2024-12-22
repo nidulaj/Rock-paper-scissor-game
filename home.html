@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style/home.css" />
+  </head>
+  <body>
+    <div class="full-page">
+      <div class="left-side">
+        <p class="title">Rock Paper Scissors</p>
+        <div class="img-1-content">
+          <img class="img-1" src="img/0_3oJdSb7B26rt3xjJ.png" alt="" />
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="welcome-content">
+          <p class="welcome">Welcome Here</p>
+        </div>
+        <div class="input-enter-button-content">
+          <input class="name-input" type="text" placeholder="Enter Your Name" />
+          <button
+            class="enter-button"
+            onclick="getName(); location.href='rockPaperScissor.html'; clearName();"
+          >
+            Enter
+          </button>
+        </div>
+        <div class="img-2-content">
+          <img class="img-2" src="img/giphy.gif" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      function getName() {
+        let name = document.querySelector(".name-input").value;
+        localStorage.setItem("userName", name);
+      }
+      function clearName() {
+        document.querySelector(".name-input").value = "";
+      }
+    </script>
+  </body>
+</html>
